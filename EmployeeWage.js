@@ -1,0 +1,1 @@
+console.log("Welcome to day 38 employee wage program using javascript");
