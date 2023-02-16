@@ -9,17 +9,21 @@ let empHrs = 0;
 const NUM_OF_WORKING_DAYS = 20;
 let totalEmpHrs = 0;
 let totalEmpWage = 0;
+const MAX_WORKING_HRS = 100;
+let totalWorkingDays = 0;
 function wageCalculation() {
-for(let i = 0; i < NUM_OF_WORKING_DAYS; i++) {
+while(totalEmpHrs <= MAX_WORKING_HRS && totalWorkingDays < NUM_OF_WORKING_DAYS) {
     let empCheck = Math.floor(Math.random()*10)%3;
     switch (empCheck) {
         case IS_PART_TIME:
             console.log("Part time employee");
             empHrs = PART_TIME_HOURS;
+            totalWorkingDays++;
             break;
         case IS_FULL_TIME:
             console.log("Full time employee");
             empHrs = FULL_TIME_HOURS;
+            totalWorkingDays++;
             break;
         case IS_ABSENT:
             console.log("Employee is absent");
@@ -29,8 +33,8 @@ for(let i = 0; i < NUM_OF_WORKING_DAYS; i++) {
     let empWage = empHrs * WAGE_PER_HOUR;
     totalEmpHrs += empHrs;
     totalEmpWage = totalEmpHrs * WAGE_PER_HOUR; 
-    console.log("Employee Wage for the day "+(i+1)+" : "+empWage);
+    console.log("Employee Wage for the day "+totalWorkingDays+" : "+empWage);
     }
-    console.log("Total working hour for the month is "+totalEmpHrs+" and total wage is "+totalEmpWage);
+    console.log("Total working days for the month is "+totalWorkingDays+", total working hour"+totalEmpHrs+" and total wage is "+totalEmpWage);
 }
 wageCalculation();
